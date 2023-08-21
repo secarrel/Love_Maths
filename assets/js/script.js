@@ -15,6 +15,12 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    document.getElementById("answer-box").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            checkAnswer();
+        }
+    })
+
     runGame("addition");
 
 });
@@ -24,6 +30,9 @@ document.addEventListener("DOMContentLoaded", function() {
  * and after the user's answer has been processed
  */
 function runGame(gameType) {
+
+    document.getElementById("answer-box").value = "";
+    document.getElementById("answer-box").focus();
 
     // Creates two random numbers between 1 and 25
     let num1 = Math.floor(Math.random() * 25) + 1;
@@ -43,7 +52,7 @@ function runGame(gameType) {
 }
 
 /**
- * Checks the answer agaist the first element in
+ * Checks the answer against the first element in
  * the returned calculateCorrectAnswer array
  */
 function checkAnswer() {
@@ -77,9 +86,9 @@ function calculateCorrectAnswer() {
     if (operator === "+") {
         return [operand1 + operand2, "addition"];
     } else if (operator === "-") {
-        return [operand1 + operand2, "subtract"];
+        return [operand1 - operand2, "subtract"];
     } else if (operator === "x") {
-        return [operand1 + operand2, "multiply"];
+        return [operand1 * operand2, "multiply"];
     } else {
         alert(`Unimplemented operator ${operator}`);
         throw `Unimplemented operator ${operator}. Aborting!`;
