@@ -39,7 +39,7 @@ function runGame(gameType) {
     let num2 = Math.floor(Math.random() * 25) + 1;
     let numD1 = Math.floor(Math.random() * 10) + 1;
     let numD2 = Math.floor(Math.random() * 10) + 1;
-    let numD3 = numD1 * numD2
+    let numD3 = numD1 * numD2;
 
     if (gameType === "addition") {
         displayAdditionQuestion(num1, num2);
@@ -49,7 +49,7 @@ function runGame(gameType) {
         displayMultiplyQuestion(num1, num2);
     } else if (gameType === "division") {
         displayDivisionQuestion(numD3, numD1);
-    }else {
+    } else {
         alert(`Unknown game type: ${gameType}`);
         throw `Unknown game type: ${gameType}. Aborting!`;
     }
@@ -96,7 +96,7 @@ function calculateCorrectAnswer() {
         return [operand1 * operand2, "multiply"];
     } else if (operator === "/") {
         return [operand1 / operand2, "division"];
-    }else {
+    } else {
         alert(`Unimplemented operator ${operator}`);
         throw `Unimplemented operator ${operator}. Aborting!`;
     }
